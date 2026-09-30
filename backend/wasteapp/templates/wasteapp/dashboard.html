@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eco Track - Dashboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f8f4;
+            color: #1f3d2b;
+        }
+
+        .navbar {
+            background: #2e7d32;
+            color: white;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .heading h1 {
+            color: #2e7d32;
+        }
+
+        .pickup-card {
+            background: white;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .pickup-card h2 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .info {
+            line-height: 1.8;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        .new-request {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 13px 22px;
+            background: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .new-request:hover {
+            background: #1b5e20;
+        }
+
+        footer {
+            text-align: center;
+            background: #1b5e20;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>🌱 Eco Track</h2>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/pickup/">New Pickup</a>
+            <a href="/admin/">Admin</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="heading">
+            <h1>📋 Waste Pickup Dashboard</h1>
+            <p>View and track your waste pickup requests.</p>
+        </div>
+
+        {% for pickup in pickups %}
+
+        <div class="pickup-card">
+
+            <h2>🚛 Waste Pickup Request</h2>
+
+            <div class="info">
+                <strong>Name:</strong> {{ pickup.name }} <br>
+
+                <strong>Waste Type:</strong> {{ pickup.waste_type }} <br>
+
+                <strong>Pickup Date:</strong> {{ pickup.pickup_date }} <br>
+
+                <strong>Address:</strong> {{ pickup.address }} <br>
+
+                <strong>Location:</strong>
+                {% if pickup.latitude and pickup.longitude %}
+                    {{ pickup.latitude }}, {{ pickup.longitude }}
+                {% else %}
+                    Location not provided
+                {% endif %}
+                <br><br>
+
+                <strong>Status:</strong>
+                <span class="status">
+                    {{ pickup.status }}
+                </span>
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="pickup-card">
+            <h2>No pickup requests found.</h2>
+            <p>Submit your first waste pickup request.</p>
+        </div>
+
+        {% endfor %}
+
+        <a href="/pickup/" class="new-request">
+            + New Waste Pickup Request
+        </a>
+
+    </div>
+
+    <footer>
+        <p>Eco Track © 2026 | Smart Waste Management System</p>
+    </footer>
+
+</body>
+</html>

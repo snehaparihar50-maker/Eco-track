@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Track | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">🌱 Eco<span>Track</span></div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#requests">My Requests</a></li>
+            <li><a href="#services">Services</a></li>
+        </ul>
+
+        <a href="index.html" class="login-btn">Logout</a>
+    </nav>
+</header>
+
+<section class="dashboard">
+
+    <div class="dashboard-heading">
+        <div>
+            <p class="small-title">USER DASHBOARD</p>
+            <h1>Welcome to <span>EcoTrack</span> 🌱</h1>
+            <p>Manage your waste collection easily and help keep your city clean.</p>
+        </div>
+
+        <div class="user-icon">👤</div>
+    </div>
+
+
+    <!-- Dashboard Cards -->
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <div class="dashboard-icon">🚛</div>
+            <h3>Request Pickup</h3>
+            <p>Schedule a waste collection from your location.</p>
+            <a href="pickup.html" class="primary-btn">Request Now</a>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="dashboard-icon">📍</div>
+            <h3>My Location</h3>
+            <p>Share your location for accurate waste pickup.</p>
+            <button class="location-btn">Use My Location</button>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="dashboard-icon">📋</div>
+            <h3>My Requests</h3>
+            <p>Check the status of your waste pickup requests.</p>
+            <a href="pickup.html" class="primary-btn">Request Now</a>
+        </div>
+
+    </div>
+
+
+    <!-- Statistics -->
+    <div class="dashboard-stats">
+
+        <div class="dash-stat">
+            <h2>05</h2>
+            <p>Total Requests</p>
+        </div>
+
+        <div class="dash-stat">
+            <h2>02</h2>
+            <p>Pending</p>
+        </div>
+
+        <div class="dash-stat">
+            <h2>03</h2>
+            <p>Completed</p>
+        </div>
+
+        <div class="dash-stat">
+            <h2>01</h2>
+            <p>Active Pickup</p>
+        </div>
+
+    </div>
+
+
+    <!-- Recent Requests -->
+    <section class="requests" id="requests">
+
+        <div class="section-heading">
+            <p>RECENT ACTIVITY</p>
+            <h2>My Waste Requests</h2>
+        </div>
+
+        <div class="request-table">
+
+            <div class="request-row request-header">
+                <span>Request ID</span>
+                <span>Waste Type</span>
+                <span>Date</span>
+                <span>Status</span>
+            </div>
+
+            <div class="request-row">
+                <span>#ET001</span>
+                <span>♻️ Recyclable</span>
+                <span>08 Sep 2026</span>
+                <span class="status pending">Pending</span>
+            </div>
+
+            <div class="request-row">
+                <span>#ET002</span>
+                <span>🌿 Organic</span>
+                <span>05 Sep 2026</span>
+                <span class="status completed">Completed</span>
+            </div>
+
+            <div class="request-row">
+                <span>#ET003</span>
+                <span>🚛 General</span>
+                <span>02 Sep 2026</span>
+                <span class="status completed">Completed</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Waste Categories -->
+    <section class="dashboard-waste" id="services">
+
+        <div class="section-heading">
+            <p>WASTE MANAGEMENT</p>
+            <h2>Choose Waste Category</h2>
+        </div>
+
+        <div class="waste-options">
+
+            <div class="waste-option">
+                <div>♻️</div>
+                <h3>Recyclable</h3>
+                <p>Paper, plastic, glass & metal</p>
+            </div>
+
+            <div class="waste-option">
+                <div>🌿</div>
+                <h3>Organic</h3>
+                <p>Food & biodegradable waste</p>
+            </div>
+
+            <div class="waste-option">
+                <div>🚛</div>
+                <h3>General</h3>
+                <p>Regular household waste</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<footer>
+    <div class="logo">🌱 Eco<span>Track</span></div>
+    <p>Smart Waste Management for a Cleaner Future 🌍</p>
+    <p class="copyright">© 2026 Eco Track. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

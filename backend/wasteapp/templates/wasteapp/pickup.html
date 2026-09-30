@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Track | Waste Pickup</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body class="login-page">
+
+<div class="login-container">
+    <div class="login-box pickup-box">
+
+        <div class="login-logo">🚛</div>
+
+        <h1>Request <span>Waste Pickup</span></h1>
+
+        <p class="login-subtitle">
+            Schedule a waste collection from your location
+        </p>
+
+    <form id="pickupForm" method="POST" action="/pickup/">
+    {% csrf_token %}
+            <label for="name">Full Name</label>
+            <input
+             type="text"
+             id="name"
+             name="name"
+             placeholder="Enter your name"
+             required
+            >
+
+            <label for="waste">Waste Category</label>
+            <select id="waste" name="waste_type" required>               <option value="">Select waste category</option>
+                <option value="Recyclable">♻️ Recyclable Waste</option>
+                <option value="Organic">🌿 Organic Waste</option>
+                <option value="General">🚛 General Waste</option>
+            </select>
+
+            <label for="date">Pickup Date</label>
+            <input
+              type="date"
+              id="date"
+              name="pickup_date"
+              required
+            >
+
+            <label for="address">Pickup Address</label>
+        <textarea
+             id="address"
+            name="address"
+            rows="4"
+            placeholder="Enter your pickup address"
+            required
+        ></textarea>
+        <button type="button" class="location-btn" onclick="getLocation()">
+            📍 Use My Location
+        </button>
+
+        <p id="locationResult">
+           Location not detected yet.
+        </p>
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+        <div id="map"></div>
+
+         <button type="submit" class="login-submit">
+             Request Pickup
+        </button>
+        
+        </form>
+
+        <p class="signup-text">
+            Want to go back?
+        <a href="/pickup/">Dashboard</a>        </p>
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </div>
+</div>
+
+<script>
+function getLocation() {
+
+    if (!navigator.geolocation) {
+        document.getElementById("locationResult").innerText =
+            "❌ GPS is not supported by your browser.";
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+        function(position) {
+
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            if (window.map) {
+             map.setView([latitude, longitude], 17);
+
+             L.marker([latitude, longitude])
+            .addTo(map)
+            .bindPopup("📍 Your Pickup Location")
+            .openPopup();
+}
+
+            document.getElementById("address").value =
+                "Latitude: " + latitude.toFixed(6) +
+                "\nLongitude: " + longitude.toFixed(6);
+
+            document.getElementById("locationResult").innerText =
+                "📍 Location detected successfully! " +
+                "Latitude: " + latitude.toFixed(6) +
+                " | Longitude: " + longitude.toFixed(6);
+
+        },
+
+        function(error) {
+
+            document.getElementById("locationResult").innerText =
+                "❌ Unable to get location: " + error.message;
+        }
+    );
+}
+</script>
+<script>
+    window.map = L.map("map").setView([23.2599, 77.4126], 13);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+</script>
+</body>
+</html>

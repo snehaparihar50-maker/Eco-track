@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eco Track</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f8f4;
+            color: #1f3d2b;
+        }
+
+        .navbar {
+            background: #2e7d32;
+            color: white;
+            padding: 18px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .pickup {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .login {
+            background: white;
+            color: #2e7d32;
+            border: 2px solid #2e7d32;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #2e7d32;
+        }
+
+        footer {
+            text-align: center;
+            background: #1b5e20;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2>🌱 Eco Track</h2>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/pickup/">Pickup</a>
+            <a href="/login/">Login</a>
+        </div>
+    </div>
+
+    <section class="hero">
+
+        <h1>♻️ Smart Waste Management</h1>
+
+        <p>
+            Eco Track helps users submit waste pickup requests,
+            provide their location, and track the status of their
+            waste collection requests.
+        </p>
+
+        <div class="buttons">
+            <a href="/pickup/" class="btn pickup">
+                🚛 Request Waste Pickup
+            </a>
+
+            <a href="/login/" class="btn login">
+                🔐 Login
+            </a>
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <div class="card">
+            <h3>📍 Location Tracking</h3>
+            <p>
+                Provide your pickup location using GPS coordinates.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>♻️ Waste Categories</h3>
+            <p>
+                Submit recyclable, organic, or general waste requests.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📋 Request Tracking</h3>
+            <p>
+                Check the current status of your waste pickup request.
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>Eco Track © 2026 | Smart Waste Management System</p>
+    </footer>
+
+</body>
+</html>
